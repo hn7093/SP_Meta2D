@@ -25,12 +25,12 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "70774fa3-06a9-4806-a220-abd3c9794580",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Sprint",

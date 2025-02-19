@@ -25,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D _rigidbody;
     PlayerInputs _inputs;
 
-    [SerializeField] GameObject mouseDebug;
+    [SerializeField] SpriteRenderer playerSprite;
+    [SerializeField] SpriteRenderer vehicleSprite;
 
     void Awake()
     {
@@ -36,11 +37,23 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        int idx = PlayerPrefs.GetInt("playerSprite", 0);
+        ChangeSprite(idx);
     }
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            ChangeSprite(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ChangeSprite(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ChangeSprite(2);
+        }
     }
     void FixedUpdate()
     {
@@ -62,8 +75,39 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // move
+        if (_inputs.movementDirection.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+
+        // sprint
         float sprintSpeed = _inputs.isSprint ? spintSpeed : moveSpeed;
+        if (_inputs.isSprint)
+        {
+            playerSprite.enabled = false;
+            vehicleSprite.enabled = true;
+        }
+        else
+        {
+            playerSprite.enabled = true;
+            vehicleSprite.enabled = false;
+        }
         movementDirection = _inputs.movementDirection.normalized * sprintSpeed;
         _rigidbody.velocity = movementDirection;
+    }
+
+    // 플레이어 스프라이트 변경
+    void ChangeSprite(int idx)
+    {
+        Sprite playerImage = Resources.Load<Sprite>($"player{idx}");
+        if (playerImage != null)
+        {
+            playerSprite.sprite = playerImage;
+            PlayerPrefs.SetInt("playerSprite", idx);
+        }
     }
 }
