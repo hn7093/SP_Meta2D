@@ -6,7 +6,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public Transform target;  // 따라갈 타겟
-    public float smoothSpeed = 0.5f;
+    public float smoothSpeed = 3f;
     public Vector3 offset;  // 타겟과의 거리
     public bool limitX;
     public float minX;
