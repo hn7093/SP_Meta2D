@@ -26,6 +26,8 @@ public class BlockScoreManager : MonoBehaviour
     void Start()
     {
         bestScore = PlayerPrefs.GetInt("BestBlock",0);
+        scoreTMP.text = "0";
+        bestTMP.text = bestScore.ToString();
     }
     public void AddScore(int point)
     {
@@ -33,6 +35,7 @@ public class BlockScoreManager : MonoBehaviour
         if(currentScore >= bestScore)
         {
             PlayerPrefs.SetInt("BestBlock",currentScore);
+            bestTMP.text = currentScore.ToString();
         }
         scoreTMP.text = currentScore.ToString();
         ResultScoreTMP.text = currentScore.ToString();
@@ -54,6 +57,7 @@ public class BlockScoreManager : MonoBehaviour
             reayUI.SetActive(false);
             resultUI.SetActive(true);
             int bestScore = PlayerPrefs.GetInt("BestBlock", 0);
+            ResultScoreTMP.text = currentScore.ToString();
             ResultBestScoreTMP.text = bestScore.ToString();
         }
     }

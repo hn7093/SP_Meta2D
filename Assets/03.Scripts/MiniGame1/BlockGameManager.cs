@@ -59,7 +59,6 @@ public class BlockGameManager : MonoBehaviour
     }
     public void GameStop()
     {
-        Debug.Log("GameStop");
         ChangeState(GameState.Stop);
         BlockScoreManager.Instance.ActiveUI(gameState);
     }
