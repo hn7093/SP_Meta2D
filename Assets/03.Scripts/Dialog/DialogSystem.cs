@@ -39,15 +39,20 @@ public class DialogSystem : MonoBehaviour
 
     private void Awake()
     {
-        Setup();
+        //Setup();
     }
-    private void StartDialog()
+    public void StartDialog()
     {
         uiObject.SetActive(true);
-        UpdateDialog();
+        StartCoroutine(ActiveDialog());
+    }
+    private IEnumerator ActiveDialog()
+    {
+        yield return new WaitUntil(() => UpdateDialog());
     }
     private void Setup()
     {
+        Debug.Log("Setup");
         // 게임 오브젝트 비활성화
         for (int i = 0; i < speakers.Length; i++)
         {
@@ -67,7 +72,6 @@ public class DialogSystem : MonoBehaviour
                 SetNextDialog();
             isFirst = false;
         }
-
         if (Input.GetMouseButtonDown(0))// 좌클릭
         {
             // 타이핑 속도별 출력중이라면 중지
@@ -93,6 +97,8 @@ public class DialogSystem : MonoBehaviour
                     SetActiveObjects(speakers[i], false);
                     speakers[i].imageCharacter.gameObject.SetActive(false);
                 }
+                // 종료
+                uiObject.SetActive(false);
                 return true;
             }
         }
@@ -102,6 +108,7 @@ public class DialogSystem : MonoBehaviour
     // 다음 대사 진행
     public void SetNextDialog()
     {
+        Debug.Log("SetNextDialog");
         // 이전 화자 비활성
         SetActiveObjects(speakers[currentSpeakerIdx], false);
 
