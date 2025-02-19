@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // 플레이어 스프라이트 변경
-    void ChangeSprite(int idx)
+    public void ChangeSprite(int idx)
     {
         Sprite playerImage = Resources.Load<Sprite>($"player{idx}");
         if (playerImage != null)
