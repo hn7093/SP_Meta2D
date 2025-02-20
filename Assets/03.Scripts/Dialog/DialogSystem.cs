@@ -52,7 +52,6 @@ public class DialogSystem : MonoBehaviour
     }
     private void Setup()
     {
-        Debug.Log("Setup");
         // 게임 오브젝트 비활성화
         for (int i = 0; i < speakers.Length; i++)
         {
@@ -108,7 +107,6 @@ public class DialogSystem : MonoBehaviour
     // 다음 대사 진행
     public void SetNextDialog()
     {
-        Debug.Log("SetNextDialog");
         // 이전 화자 비활성
         SetActiveObjects(speakers[currentSpeakerIdx], false);
 

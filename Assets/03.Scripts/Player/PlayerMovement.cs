@@ -10,16 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 3.0f;
     private float spintSpeed = 6.0f;
 
-
-    // jump
-    private float jumpDelay = 1.0f;
-    private float jumpForce = 2.0f;
-    private float jumpTimer;
-    private float verticalVelocity;
-    private bool onJump;
-
-    private bool canJump = true;
-
     // components;
     Camera camera;
     Rigidbody2D _rigidbody;

@@ -2476,7 +2476,7 @@ MonoBehaviour:
   - speakerIdx: 0
     name: "\uC548\uB0B4\uC6D0"
     dialog: "\uB124 \uAC10\uC0AC\uD588\uC2B5\uB2C8\uB2E4."
-  isAutoStart: 0
+  isAutoStart: 1
 --- !u!4 &400600864
 Transform:
   m_ObjectHideFlags: 0
@@ -2485,12 +2485,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400600862}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.52, y: -1.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1295771502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &475881346
 GameObject:
@@ -7806,6 +7806,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1730615950}
+  - {fileID: 400600864}
   m_Father: {fileID: 2035488655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1295771504
@@ -13529,8 +13530,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
+  - {fileID: 336556709}
   - {fileID: 657215013}
   - {fileID: 1369568570}
   - {fileID: 305494949}
-  - {fileID: 336556709}
-  - {fileID: 400600864}

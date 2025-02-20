@@ -57,7 +57,6 @@ public class BlockGameManager : MonoBehaviour
             blocks.Add(block);
             // 레벨별로 최대 HP를 랜덤 설정
             int hp = Random.Range(1, level+1);
-            Debug.Log(hp);
             blocks[i].SetHp(hp);
         }
     }

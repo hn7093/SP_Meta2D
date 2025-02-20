@@ -13,8 +13,6 @@ public class Obstacle : MonoBehaviour
 
     public Transform topObject;
     public Transform bottomObject;
-
-    public float widthPadding = 4f; // 배치 간격
     private IObjectPool<Obstacle> obstaclePool;
 
     // Start is called before the first frame update
@@ -47,11 +45,10 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // 플레이어이고 죽기 않은 경우에만
+        // 플레이어이고 죽지 않은 경우에만
         JumpBox player = collision.GetComponent<JumpBox>();
         if(player && !player.isDead)
         {
-            Debug.Log("OnTriggerExit2D : " + collision.gameObject.name);
             UIManager.Instance.AddScore(1);
         }
     }

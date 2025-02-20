@@ -88,7 +88,6 @@ public class JumpBox : MonoBehaviour
         // Game Over
         isDead = true;
         deathCooldown = 1f;
-        Debug.Log("Die");
         _animator.SetBool("IsDie", true);
         GameManager.Instance.GameStop();
     }
